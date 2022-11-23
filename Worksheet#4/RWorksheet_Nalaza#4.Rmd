@@ -1,0 +1,113 @@
+---
+title: "Work Sheet 4"
+author: "Wendy Nalaza"
+date: "2022-11-22"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***1. The table below shows the data about shoe size and height. Create a data frame..***
+
+**library(dplyr)**
+**library(readr)**
+**library(data.table)**
+
+
+**a. Describe the data.**
+
+```{r echo=FALSE}
+Shoesize <- c(6.5,9.0,8.5,8.5,10.5,7.0,9.5,9.0,13.0,
+              7.5,10.5,8.5,12.0,10.5,
+              13.0,11.5,8.5,5.0,10.0,
+              6.5,7.5,8.5,10.5,8.5,10.5,11.0,9.0,13.0)
+Height <- c(66.0,68.0,64.5,65.0,70.0,
+            64.0,70.0,71.0,72.0,64.0,
+            74.5,67.0,71.0,71.0,77.0,72.0,
+            59.0,62.0,72.0,66.0,64.0,67.0,73.0,
+            69.0,72.0,70.0,69.0,70)
+Gender <- c("F","F","F","F","M","F","M","F","M",
+             "M","M","F","M","M","M","M","F","F",
+            "M","F","M","M","M","F","M","M","M","M")
+ data_frame <- data.frame(Shoesize,Height,Gender)
+ data_frame
+```
+ 
+***Answer: The output will show a data base on what we put on each rows within the dataframe***
+ 
+**b. Find the mean of shoe size and height of the respondents.**
+**Copy the codes and results.**
+
++
+**Male**
+
+```{r xb, echo=TRUE}
+Boy <- subset(data_frame, Gender == "M")
+mean(Boy$Shoesize)
+mean(Boy$Height)
+```
+
++
+**Female**
+
+```{r xb1, echo=TRUE}
+Girl <- subset(data_frame, Gender == "F")
+mean(Girl$Shoesize)
+mean(Girl$Height)
+```
+
+**c. Is there a relationship between shoe size and height? Why?**
+
+**Yes, the higher the value of height, the greater the value of the shoe size,** 
+**and the factor levels below are the actual values.**
+
+***2. Construct character vector months to a factor with factor() and assign the result to factor_months_vector. Print out factor_months_vector and assert that R prints out the factor levels below the actual values.***
+
+```{r x2, echo=TRUE}
+Months_Vector <- c("March","April","January","November","January",
+            "September","October","September","November","August",
+            "January","November","November","February","May","August",
+            "July","December","August","August","September","November","February","April")
+Factor_Month_Vector <- factor(Months_Vector)
+Factor_Month_Vector
+```
+
+***3. Then check the summary() of the Months_Vector_vector and Factor_Month_Vector_vector.***
+**Interpret the results of both vectors. Are they both equally useful in this case?**
+
+```{r x3, echo=TRUE}
+summary(Months_Vector)
+summary(Factor_Month_Vector)
+```
+
+**Answer: Yes, as for the months_vector, it shows the number of months and their class and mode, while in the factor_months_vector, the month has been factored by level and alphabetically, and it shows the number of each month.**
+
+***4. Create a vector and factor for the table below.***
+
+```{r x4, echo=TRUE}
+factorData <- data.frame(
+ Direction = c("East","West","North"),
+ Frequency = c(1,4,3)
+)
+factorData
+newOrderData <- factor(factorData,levels = c("East","West","North"))
+print(newOrderData)
+```
+
+***5. Enter the data below in Excel with file name = import_march.csv***
+**a. Import the excel file into the Environment Pane using read.table() function.**
+
+***import_march.csv <- read_excel("iris_sample.xls")***
+***import_march.csv***
+```{r x5, echo=TRUE}
+table1 <- read.table("C:/CS101_DATA_SCIENCE/Nalaza_Repo/Worksheet#4/import_march.csv", header = TRUE, sep = ",")
+table1
+```
+
+**b. View the dataset. Write the code and its result.**
+```{r x5b, echo=TRUE}
+read.csv("C:/CS101_DATA_SCIENCE/Nalaza_Repo/Worksheet#4/import_march.csv")
+```
+***import_march.csv***
