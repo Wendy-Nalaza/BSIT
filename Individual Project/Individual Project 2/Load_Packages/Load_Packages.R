@@ -1,0 +1,17 @@
+#libraries
+
+library("twitteR")
+library(tm)
+library(dplyr)
+library("plotly")
+library(ggplot2)
+library(RColorBrewer)
+library(tidytext)
+library(stringr)
+library(tidyr)
+library(rtweet)
+library(corpus)
+library(magrittr)
+library(wordcloud)
+library(wordcloud2)
+library(syuzhet)
